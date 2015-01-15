@@ -122,7 +122,9 @@ for i=1:size(suitable_reads,2)
 end
 
 % Save the last bit
-save(out_mat_file, 'kimura_reads_map', 'titv_reads_map', 'read_list_to_investigate','sam_reads_cigar_map','sam_reads_seqs_map','sam_reads_refs_map')
+%save(out_mat_file, 'kimura_reads_map', 'titv_reads_map', 'read_list_to_investigate','sam_reads_cigar_map','sam_reads_seqs_map','sam_reads_refs_map')
+%save(out_mat_file, 'titv_reads_map')
+savefast(out_mat_file, 'titv_reads_map');
 
 % Analysis for Kimura
 %[readnames_for_rightwrong_matrix_kimora,score_rightwrong_matrix_kimora,...

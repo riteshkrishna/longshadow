@@ -6,6 +6,7 @@ function mapping_pipeline_run(sam_file,bed_sam_file,sam_read_file,...
                 out_jc69_mat,out_titv_mat,out_multivar_file,workspace_dir)
         
         % Read SAM and extract relevant columns 
+        
         perform_grep_awk_on_sam(sam_file, out_small_sam_txt)
         fprintf(1, 'Done Grep')
         
@@ -31,7 +32,8 @@ function mapping_pipeline_run(sam_file,bed_sam_file,sam_read_file,...
         %[right_values, wrong_values, right_ids, wrong_ids] = analyzeMultivariateData(out_multivar_file, map_class)
         [filtered_data,filtered_reads] = analyzeMultivariateData_generic(out_multivar_file,map_class);
         filtered_data_mat = strcat(workspace_dir,'/Filtered_Data.mat');
-        save(filtered_data_mat,'filtered_data','filtered_reads');
+        %save(filtered_data_mat,'filtered_data','filtered_reads');
+        savefast(filtered_data_mat,'filtered_data','filtered_reads');
         fprintf(1, 'Finished filtering of reads for DNDS')
         
         % Compute KaKs values for chosen reads
@@ -45,7 +47,8 @@ function mapping_pipeline_run(sam_file,bed_sam_file,sam_read_file,...
         dnds_values = final_result_dnds.read_data;
         
         filtered_dnds_mat = strcat(workspace_dir,'/Filtered_DNDS.mat');
-        save(filtered_dnds_mat,'nan_dnds_ids','nan_dnds_values','dnds_ids','dnds_values');
+        %save(filtered_dnds_mat,'nan_dnds_ids','nan_dnds_values','dnds_ids','dnds_values');
+        savefast(filtered_dnds_mat,'nan_dnds_ids','nan_dnds_values','dnds_ids','dnds_values');
         fprintf(1, 'Finished DNDS')
         
         % Perform k-means
@@ -78,7 +81,8 @@ function mapping_pipeline_run(sam_file,bed_sam_file,sam_read_file,...
         print('-dtiff','-r300',cluster2_figure)
         
         kmeans_mat = strcat(workspace_dir,'/kmeans.mat');
-        save(kmeans_mat,'X','idx_right','final_idx1','final_idx2');
+        %save(kmeans_mat,'X','final_idx1','final_idx2');
+        savefast(kmeans_mat,'X','final_idx1','final_idx2');
         fprintf(1, 'Finished K-mean')
         
 end

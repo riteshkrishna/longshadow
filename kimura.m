@@ -22,7 +22,7 @@ end
 
 L_temp = [nt2int(s1(h),'ACGTOnly', true)' , nt2int(s2(h),'ACGTOnly', true)'];
 L_temp(find(ismember(L_temp,0)),:) = [];
-L = double(L_temp)
+L = double(L_temp);
 
 X  = accumarray(L,1,[4 4]);
 numPairs = sum(X(:));

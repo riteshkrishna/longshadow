@@ -36,10 +36,11 @@ function perform_grep_awk_on_sam(sam_file, out_small_sam_txt )
             POS     = C{4};
             MAPQ    = C{5};
             CIGAR   = C{6};
+            SEQ     = C{10};
             
             TF = strfind(CIGAR,'*');
             if isempty(TF) 
-                fprintf(f_out,'%s\t%s\t%s\n',QNAME, RNAME, CIGAR);
+                fprintf(f_out,'%s\t%s\t%s\t%s\n',QNAME, RNAME, CIGAR, SEQ);
             end
             
         end

@@ -123,8 +123,9 @@ end
 
 % Save the last bit
 %save('jc69-calc.mat', 'jc69_reads_map', 'read_list_to_investigate','sam_reads_cigar_map','sam_reads_refs_map')
-save(out_mat_file, 'jc69_reads_map', 'read_list_to_investigate','sam_reads_cigar_map','sam_reads_refs_map')
-
+%save(out_mat_file, 'jc69_reads_map', 'read_list_to_investigate','sam_reads_cigar_map','sam_reads_refs_map')
+%save(out_mat_file, 'jc69_reads_map')
+savefast(out_mat_file,'jc69_reads_map');
 
 %[readnames_for_rightwrong_matrix,score_rightwrong_matrix,...
 %    right_values,wrong_values,errorCheck_reads_refs_map] = postprocessing_right_wrong_identification(jc69_reads_map,sam_reads_refs_map)

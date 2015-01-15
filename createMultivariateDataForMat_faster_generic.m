@@ -81,6 +81,6 @@ function  [nooutlier_combined_data,out_mat_file] ...
     right_idx = find(all(I,2));
     nooutlier_combined_read_ids = combined_read_ids(right_idx);
     
-    save(out_mat_file,'combined_read_ids','combined_data','nooutlier_combined_data','nooutlier_combined_read_ids');
-    
+    %save(out_mat_file,'combined_read_ids','combined_data','nooutlier_combined_data','nooutlier_combined_read_ids');
+    savefast(out_mat_file,'combined_read_ids','combined_data','nooutlier_combined_data','nooutlier_combined_read_ids');
 end
